@@ -1,76 +1,62 @@
-// ==========================================
-// Kalki Pradee Tours & Travels
-// signup.js
-// ==========================================
+import {
+auth,
+provider,
+signInWithPopup,
+createUserWithEmailAndPassword
+} from "./firebase.js";
 
-document.addEventListener("DOMContentLoaded", () => {
+const form=document.getElementById("signupForm");
 
-const form = document.getElementById("signupForm");
-
-form.addEventListener("submit", function(e){
+form.addEventListener("submit",async(e)=>{
 
 e.preventDefault();
 
-const fullname = document.getElementById("fullname").value.trim();
+const email=document.getElementById("email").value.trim();
 
-const phone = document.getElementById("phone").value.trim();
+const password=document.getElementById("password").value;
 
-const email = document.getElementById("email").value.trim();
+const confirm=document.getElementById("confirmPassword").value;
 
-const password = document.getElementById("password").value;
+if(password!==confirm){
 
-const confirmPassword = document.getElementById("confirmPassword").value;
-
-if(fullname === "" || phone === "" || email === "" || password === ""){
-
-alert("Please fill all fields.");
+alert("Passwords do not match!");
 
 return;
 
 }
 
-if(phone.length < 10){
+try{
 
-alert("Enter a valid phone number.");
+await createUserWithEmailAndPassword(auth,email,password);
 
-return;
+alert("Account Created Successfully!");
 
-}
+window.location.href="login.html";
 
-if(password.length < 6){
+}catch(error){
 
-alert("Password must be at least 6 characters.");
-
-return;
+alert(error.message);
 
 }
-
-if(password !== confirmPassword){
-
-alert("Passwords do not match.");
-
-return;
-
-}
-
-alert("Account created successfully!");
-
-window.location.href = "login.html";
 
 });
 
-const googleBtn = document.getElementById("googleSignup");
+const googleBtn=document.getElementById("googleSignup");
 
-if(googleBtn){
+googleBtn.addEventListener("click",async()=>{
 
-googleBtn.addEventListener("click", () => {
+try{
 
-alert("Google Sign Up will be connected with Firebase in the next step.");
+await signInWithPopup(auth,provider);
 
-});
+alert("Google Account Created Successfully!");
+
+window.location.href="index.html";
+
+}catch(error){
+
+alert(error.message);
 
 }
-
-console.log("Signup page loaded successfully.");
 
 });
