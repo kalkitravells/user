@@ -1,36 +1,52 @@
-// Kalki Pradee Tours & Travels
-// login.js
+import {
+auth,
+provider,
+signInWithPopup,
+signInWithEmailAndPassword
+} from "./firebase.js";
 
-document.getElementById("loginForm").addEventListener("submit", function(e){
+const form = document.getElementById("loginForm");
 
-    e.preventDefault();
+form.addEventListener("submit", async (e)=>{
 
-    const email = document.getElementById("email").value.trim();
+e.preventDefault();
 
-    const password = document.getElementById("password").value.trim();
+const email=document.getElementById("email").value.trim();
 
-    if(email === "" || password === ""){
+const password=document.getElementById("password").value;
 
-        alert("Please fill all fields.");
+try{
 
-        return;
+await signInWithEmailAndPassword(auth,email,password);
 
-    }
+alert("Login Successful!");
 
-    alert("Login successful!");
+window.location.href="index.html";
 
-    window.location.href = "index.html";
+}catch(error){
+
+alert(error.message);
+
+}
 
 });
 
-// Google Login (Temporary)
+const googleBtn=document.querySelector(".btn-light");
 
-document.querySelector(".btn-light").addEventListener("click", function(){
+googleBtn.addEventListener("click",async()=>{
 
-    alert("Google Login will be connected with Firebase later.");
+try{
+
+await signInWithPopup(auth,provider);
+
+alert("Google Login Successful!");
+
+window.location.href="index.html";
+
+}catch(error){
+
+alert(error.message);
+
+}
 
 });
-
-// Guest Login
-
-console.log("Login page loaded successfully.");
