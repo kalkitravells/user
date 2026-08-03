@@ -32,40 +32,45 @@ background:#f5f5f5;
 
 .navbar{
 background:#000;
+padding:15px 0;
 }
 
 .navbar-brand{
 color:#ffc107!important;
 font-weight:700;
+font-size:22px;
 }
 
 .card{
 border:none;
 border-radius:18px;
-box-shadow:0 10px 25px rgba(0,0,0,.12);
+box-shadow:0 10px 30px rgba(0,0,0,.15);
 }
 
 .form-control,
 .form-select{
 border-radius:12px;
+padding:12px;
 }
 
 .btn-warning{
-border-radius:50px;
 font-weight:bold;
+border-radius:50px;
+padding:12px;
 }
 
 #map{
 height:420px;
 border-radius:15px;
+margin-top:20px;
 }
 
-.alert-warning{
+.alert{
 border-radius:15px;
 }
 
-.alert-danger{
-border-radius:15px;
+small{
+font-size:13px;
 }
 
 </style>
@@ -78,7 +83,9 @@ border-radius:15px;
 
 <div class="container">
 
-<a class="navbar-brand" href="index.html">
+<a href="index.html"
+
+class="navbar-brand">
 
 <img src="images/logo.jpg"
 
@@ -207,7 +214,7 @@ class="btn btn-warning">
 
 <small class="text-muted">
 
-Search manually or use your current location.
+Search manually or tap the location button to use your current location.
 
 </small>
 
@@ -248,7 +255,7 @@ required>
 
 <small class="text-muted">
 
-Enter the approximate distance in kilometres.
+Enter the approximate travel distance in kilometres.
 
 </small>
 
@@ -304,6 +311,7 @@ id="passengers"
 class="form-control"
 min="1"
 max="17"
+placeholder="Number of Passengers"
 required>
 
 </div>
@@ -320,10 +328,9 @@ Special Requirements
 id="message"
 class="form-control"
 rows="4"
-placeholder="Write your requirements..."></textarea>
+placeholder="Any special instructions..."></textarea>
 
 </div>
-
 <div class="alert alert-warning">
 
 <h5 class="mb-2">
@@ -332,15 +339,53 @@ Estimated Fare
 
 </h5>
 
-<h2 id="estimatedFare">
+<div class="row">
+
+<div class="col-6">
+
+<p class="mb-1">
+
+Distance Charge
+
+</p>
+
+<h6 id="distanceCharge">
 
 ₹0
 
-</h2>
+</h6>
+
+</div>
+
+<div class="col-6">
+
+<p class="mb-1">
+
+Driver Bata
+
+</p>
+
+<h6 id="driverBata">
+
+₹0
+
+</h6>
+
+</div>
+
+</div>
+
+<hr>
+
+<h3 id="estimatedFare">
+
+₹0
+
+</h3>
 
 <small>
 
-Distance Charges + Driver Bata (₹500/day)
+Estimated Fare = Distance Charge + Driver Bata
 
 </small>
 
@@ -348,15 +393,21 @@ Distance Charges + Driver Bata (₹500/day)
 
 <div class="alert alert-danger">
 
-<b>Important Note</b><br>
+<b>Important Note</b>
 
-• Toll Charges - Not Included<br>
+<ul class="mb-0 mt-2">
 
-• Parking Charges - Not Included<br>
+<li>Toll Charges are NOT included.</li>
 
-• State Permit - Not Included<br>
+<li>Parking Charges are NOT included.</li>
 
-• Other Government Taxes (if applicable) - Not Included
+<li>State Permit Charges are NOT included.</li>
+
+<li>Other Government Taxes (if applicable) are NOT included.</li>
+
+<li>Estimated fare may vary depending on the final route.</li>
+
+</ul>
 
 </div>
 
@@ -380,7 +431,7 @@ Book Now
 
 <div class="col-lg-7">
 
-<div class="card p-3">
+<div class="card p-4">
 
 <h4 class="mb-3">
 
@@ -392,7 +443,7 @@ Pickup Location Map
 
 <p class="text-muted mt-3">
 
-📍 You can search the pickup location or use your current location.
+📍 You can manually enter the pickup location or tap the location button to use your current location.
 
 </p>
 
@@ -405,31 +456,39 @@ Pickup Location Map
 </div>
 <footer class="bg-dark text-white text-center py-4 mt-5">
 
+<div class="container">
+
 <p class="mb-0">
 
 © 2026 Kalki Pradee Tours & Travels
 
+All Rights Reserved.
+
 </p>
+
+</div>
 
 </footer>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
 <script>
-
-emailjs.init("ksjAUyR80g3-Aaq5L");
 
 const map=L.map("map").setView([12.9716,77.5946],7);
 
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{
+L.tileLayer(
+
+"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+
+{
 
 maxZoom:19,
 
 attribution:"© OpenStreetMap"
 
-}).addTo(map);
+}
+
+).addTo(map);
 
 let marker;
 
@@ -437,17 +496,19 @@ document.getElementById("currentLocation").addEventListener("click",()=>{
 
 if(!navigator.geolocation){
 
-alert("Geolocation is not supported.");
+alert("Your browser doesn't support GPS.");
 
 return;
 
 }
 
-navigator.geolocation.getCurrentPosition(async(pos)=>{
+navigator.geolocation.getCurrentPosition(
 
-const lat=pos.coords.latitude;
+async(position)=>{
 
-const lng=pos.coords.longitude;
+const lat=position.coords.latitude;
+
+const lng=position.coords.longitude;
 
 map.setView([lat,lng],15);
 
@@ -461,7 +522,11 @@ marker=L.marker([lat,lng]).addTo(map);
 
 try{
 
-const res=await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`);
+const res=await fetch(
+
+`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`
+
+);
 
 const data=await res.json();
 
@@ -469,11 +534,21 @@ document.getElementById("pickup").value=data.display_name;
 
 }catch{
 
-document.getElementById("pickup").value=lat+","+lng;
+document.getElementById("pickup").value=
+
+lat+","+lng;
 
 }
 
-});
+},
+
+()=>{
+
+alert("Please allow location permission.");
+
+}
+
+);
 
 });
 
@@ -489,23 +564,45 @@ const to=document.getElementById("toDate").value;
 
 if(!rate||!km||!from||!to){
 
+document.getElementById("distanceCharge").innerHTML="₹0";
+
+document.getElementById("driverBata").innerHTML="₹0";
+
 document.getElementById("estimatedFare").innerHTML="₹0";
 
 return;
 
 }
 
-const d1=new Date(from);
+const start=new Date(from);
 
-const d2=new Date(to);
+const end=new Date(to);
 
-const days=Math.floor((d2-d1)/(1000*60*60*24))+1;
+let days=Math.floor((end-start)/(1000*60*60*24))+1;
+
+if(days<1){
+
+days=1;
+
+}
+
+const distanceCharge=km*rate;
 
 const bata=days*500;
 
-const total=(km*rate)+bata;
+const total=distanceCharge+bata;
 
-document.getElementById("estimatedFare").innerHTML="₹"+total.toLocaleString("en-IN");
+document.getElementById("distanceCharge").innerHTML=
+
+"₹"+distanceCharge.toLocaleString("en-IN");
+
+document.getElementById("driverBata").innerHTML=
+
+"₹"+bata.toLocaleString("en-IN");
+
+document.getElementById("estimatedFare").innerHTML=
+
+"₹"+total.toLocaleString("en-IN");
 
 }
 
@@ -517,25 +614,50 @@ document.getElementById("fromDate").addEventListener("change",calculateFare);
 
 document.getElementById("toDate").addEventListener("change",calculateFare);
 
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+
+emailjs.init("ksjAUyR80g3-Aaq5L");
+
 document.getElementById("bookingForm").addEventListener("submit",function(e){
 
 e.preventDefault();
+
+calculateFare();
 
 const rate=Number(document.getElementById("vehicle").value);
 
 const km=Number(document.getElementById("distance").value);
 
-const d1=new Date(document.getElementById("fromDate").value);
+const start=new Date(document.getElementById("fromDate").value);
 
-const d2=new Date(document.getElementById("toDate").value);
+const end=new Date(document.getElementById("toDate").value);
 
-const days=Math.floor((d2-d1)/(1000*60*60*24))+1;
+let days=Math.floor((end-start)/(1000*60*60*24))+1;
 
-const bata=days*500;
+if(days<1){
 
-const fare=(km*rate)+bata;
+days=1;
 
-emailjs.send("service_3owy9d7","template_dt99kuv",{
+}
+
+const distanceCharge=km*rate;
+
+const driverBata=days*500;
+
+const totalFare=distanceCharge+driverBata;
+
+const mapLink="https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(document.getElementById("pickup").value);
+
+emailjs.send(
+
+"service_3owy9d7",
+
+"template_dt99kuv",
+
+{
 
 name:document.getElementById("name").value,
 
@@ -555,25 +677,103 @@ passengers:document.getElementById("passengers").value,
 
 vehicle:document.getElementById("vehicle").selectedOptions[0].text,
 
-driverBata:"₹"+bata,
+driverBata:"₹"+driverBata,
 
-fare:"₹"+fare,
+fare:"₹"+totalFare,
 
-message:document.getElementById("message").value
+message:document.getElementById("message").value,
 
-}).then(()=>{
+mapLink:mapLink
+
+}
+
+).then(()=>{
 
 alert("✅ Booking received successfully!\n\nOur driver will contact you soon.");
 
 document.getElementById("bookingForm").reset();
 
+document.getElementById("distanceCharge").innerHTML="₹0";
+
+document.getElementById("driverBata").innerHTML="₹0";
+
 document.getElementById("estimatedFare").innerHTML="₹0";
 
 }).catch((error)=>{
 
-alert("Booking failed: "+error.text);
+alert("Booking Failed!\n\n"+error.text);
 
 });
+
+});
+
+</script>
+<script>
+
+// Don't allow past dates
+const today = new Date().toISOString().split("T")[0];
+
+document.getElementById("fromDate").min = today;
+document.getElementById("toDate").min = today;
+
+// Update To Date minimum when From Date changes
+document.getElementById("fromDate").addEventListener("change", () => {
+
+document.getElementById("toDate").min =
+document.getElementById("fromDate").value;
+
+if(
+document.getElementById("toDate").value &&
+document.getElementById("toDate").value <
+document.getElementById("fromDate").value
+){
+
+document.getElementById("toDate").value =
+document.getElementById("fromDate").value;
+
+}
+
+calculateFare();
+
+});
+
+// Recalculate fare when To Date changes
+document.getElementById("toDate").addEventListener("change",calculateFare);
+
+// Focus map on typed pickup location (basic search link support)
+document.getElementById("pickup").addEventListener("change",()=>{
+
+const location=document.getElementById("pickup").value.trim();
+
+if(location.length>2){
+
+fetch("https://nominatim.openstreetmap.org/search?format=json&q="+encodeURIComponent(location))
+
+.then(res=>res.json())
+
+.then(data=>{
+
+if(data.length>0){
+
+const lat=parseFloat(data[0].lat);
+
+const lon=parseFloat(data[0].lon);
+
+if(marker){
+
+map.removeLayer(marker);
+
+}
+
+marker=L.marker([lat,lon]).addTo(map);
+
+map.setView([lat,lon],14);
+
+}
+
+});
+
+}
 
 });
 
