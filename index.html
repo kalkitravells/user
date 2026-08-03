@@ -5,91 +5,303 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Kalki Pradee Tours & Travels</title>
 
-<link rel="icon" href="images/logo.png">
-
-<!-- Bootstrap -->
+<link rel="icon" href="images/logo.jpg">
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Bootstrap Icons -->
-
 <link rel="stylesheet"
-href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
-<!-- Google Font -->
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
 rel="stylesheet">
 
-<link rel="stylesheet"
-href="css/style.css">
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#f8f9fa;
+overflow-x:hidden;
+}
+
+.navbar{
+background:#000;
+padding:15px 0;
+transition:.4s;
+}
+
+.navbar-brand{
+font-weight:700;
+color:#ffc107!important;
+}
+
+.nav-link{
+color:#fff!important;
+margin-left:15px;
+font-weight:500;
+}
+
+.nav-link:hover{
+color:#ffc107!important;
+}
+
+.hero{
+
+height:100vh;
+
+background:
+linear-gradient(rgba(0,0,0,.55),
+rgba(0,0,0,.55)),
+url("images/hero.jpg");
+
+background-size:cover;
+
+background-position:center;
+
+display:flex;
+
+align-items:center;
+
+}
+
+.hero h1{
+
+font-size:60px;
+
+font-weight:700;
+
+color:white;
+
+animation:slideDown 1.2s;
+
+}
+
+.hero p{
+
+color:#eee;
+
+font-size:20px;
+
+margin:25px 0;
+
+animation:fadeIn 2s;
+
+}
+
+.btn-warning{
+
+padding:12px 35px;
+
+font-weight:600;
+
+border-radius:50px;
+
+}
+
+.hero img{
+
+width:100%;
+
+animation:float 3s infinite ease-in-out;
+
+}
+
+@keyframes float{
+
+0%{transform:translateY(0);}
+
+50%{transform:translateY(-15px);}
+
+100%{transform:translateY(0);}
+
+}
+
+@keyframes slideDown{
+
+from{
+
+opacity:0;
+
+transform:translateY(-60px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+.section-title{
+
+font-size:38px;
+
+font-weight:700;
+
+color:#111;
+
+margin-bottom:20px;
+
+}
+
+.whatsapp{
+
+position:fixed;
+
+bottom:20px;
+
+right:20px;
+
+width:60px;
+
+height:60px;
+
+background:#25D366;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:30px;
+
+color:#fff;
+
+text-decoration:none;
+
+box-shadow:0 10px 25px rgba(0,0,0,.3);
+
+z-index:999;
+
+}
+
+.call{
+
+position:fixed;
+
+bottom:95px;
+
+right:20px;
+
+width:60px;
+
+height:60px;
+
+background:#ffc107;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:28px;
+
+color:#000;
+
+text-decoration:none;
+
+box-shadow:0 10px 25px rgba(0,0,0,.3);
+
+z-index:999;
+
+}
+
+.card{
+
+transition:.4s;
+
+border:none;
+
+}
+
+.card:hover{
+
+transform:translateY(-10px);
+
+}
+
+footer{
+
+background:#000;
+
+color:white;
+
+padding:30px;
+
+text-align:center;
+
+margin-top:50px;
+
+}
+
+</style>
 
 </head>
 
 <body>
+  <!-- Navbar -->
 
-<!-- Loading Screen -->
-
-<div id="loader">
-
-<div class="loader-box">
-
-<img src="images/logo.png"
-class="loader-logo">
-
-<h2>
-
-Kalki Pradee
-
-</h2>
-
-<p>
-
-Tours & Travels
-
-</p>
-
-<div class="spinner-border text-warning"></div>
-
-</div>
-
-</div>
-
-<!-- Navbar -->
-
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top glass">
+<nav class="navbar navbar-expand-lg fixed-top">
 
 <div class="container">
 
-<a class="navbar-brand fw-bold"
-href="#">
+<a class="navbar-brand" href="#">
 
-<i class="bi bi-bus-front-fill text-warning"></i>
+<img src="images/logo.jpg"
 
-Kalki Pradee
+width="45"
+
+class="rounded-circle me-2">
+
+Kalki Pradee Tours & Travels
 
 </a>
 
-<button class="navbar-toggler"
+<button
+
+class="navbar-toggler bg-warning"
 
 data-bs-toggle="collapse"
 
 data-bs-target="#menu">
 
-<span class="navbar-toggler-icon">
-
-</span>
+<span class="navbar-toggler-icon"></span>
 
 </button>
 
@@ -101,9 +313,9 @@ id="menu">
 
 <li class="nav-item">
 
-<a class="nav-link active"
+<a class="nav-link"
 
-href="#">
+href="#home">
 
 Home
 
@@ -115,9 +327,9 @@ Home
 
 <a class="nav-link"
 
-href="#packages">
+href="#about">
 
-Packages
+About
 
 </a>
 
@@ -161,18 +373,6 @@ Contact
 
 </ul>
 
-<div class="ms-lg-3">
-
-<a href="login.html"
-
-class="btn btn-warning">
-
-Login
-
-</a>
-
-</div>
-
 </div>
 
 </div>
@@ -181,117 +381,79 @@ Login
 
 <!-- Hero -->
 
-<section class="hero">
+<section
 
-<div class="overlay">
+class="hero"
 
-<h5 class="text-warning">WELCOME TO</h5>
+id="home">
 
-<h1 class="display-2 fw-bold animate-title">
+<div class="container">
+
+<div class="row align-items-center">
+
+<div class="col-lg-6">
+
+<h5 class="text-warning">
+
+WELCOME TO
+
+</h5>
+
+<h1>
+
 Travel Without Limits
+
 </h1>
 
-<p class="lead">
-Premium Tempo Traveller Rental Across South India
+<p>
+
+Luxury Tempo Traveller Rental
+
+for Family Trips,
+
+Pilgrimage Tours,
+
+Corporate Tours,
+
+School & College Trips,
+
+and South India Packages.
+
 </p>
 
-<a href="booking.html" class="btn btn-warning btn-lg">
+<a
+
+href="booking.html"
+
+class="btn btn-warning btn-lg me-3">
+
 Book Now
+
+</a>
+
+<a
+
+href="https://wa.me/919880730323"
+
+target="_blank"
+
+class="btn btn-success btn-lg">
+
+<i class="bi bi-whatsapp"></i>
+
+WhatsApp
+
 </a>
 
 </div>
 
-</section>
+<div class="col-lg-6 text-center">
 
-<!-- Quick Booking -->
+<img
 
-<section class="quick-book">
+src="images/hero.jpg"
 
-<div class="container">
-
-<div class="card shadow-lg border-0">
-
-<div class="card-body">
-
-<h3 class="text-center mb-4">
-
-Quick Trip Planner
-
-</h3>
-
-<div class="row">
-
-<div class="col-md-3">
-
-<input
-type="text"
-
-class="form-control"
-
-placeholder="Pickup">
-
-</div>
-
-<div class="col-md-3">
-
-<input
-type="text"
-
-class="form-control"
-
-placeholder="Destination">
-
-</div>
-
-<div class="col-md-2">
-
-<input
-type="date"
-
-class="form-control">
-
-</div>
-
-<div class="col-md-2">
-
-<select
-class="form-select">
-
-<option>
-
-Vehicle
-
-</option>
-
-<option>
-
-12+1 AC
-
-</option>
-
-<option>
-
-17 Seater
-
-</option>
-
-</select>
-
-</div>
-
-<div class="col-md-2">
-
-<button
-
-class="btn btn-warning w-100">
-
-Search
-
-</button>
-
-</div>
-
-</div>
+class="img-fluid rounded-4 shadow-lg">
 
 </div>
 
@@ -300,45 +462,65 @@ Search
 </div>
 
 </section>
+<!-- About -->
 
-<!-- Start Why Choose Us -->
-
-<section class="py-5">
+<section id="about" class="py-5">
 
 <div class="container">
 
-<h2 class="text-center fw-bold">
+<div class="row align-items-center">
 
-Why Travel With Us?
+<div class="col-lg-6">
+
+<img
+
+src="images/traveller2.jpg"
+
+class="img-fluid rounded-4 shadow-lg">
+
+</div>
+
+<div class="col-lg-6">
+
+<h5 class="text-warning">
+
+ABOUT US
+
+</h5>
+
+<h2 class="section-title">
+
+Kalki Pradee Tours & Travels
 
 </h2>
 
-<p class="text-center text-muted">
+<p>
 
-Safe • Comfortable • Affordable
+Kalki Pradee Tours & Travels is a trusted Tempo Traveller rental service providing safe, comfortable, and affordable travel across Karnataka and South India.
 
 </p>
-
-<div class="row mt-5">
-  <!-- Feature Card 1 -->
-
-<div class="col-lg-4 col-md-6 mb-4">
-
-<div class="card h-100 border-0 shadow feature-card">
-
-<div class="card-body text-center">
-
-<i class="bi bi-bus-front-fill display-3 text-warning"></i>
-
-<h4 class="mt-4">
-
-Luxury Vehicles
-
-</h4>
 
 <p>
 
-Well maintained AC & Non-AC Tempo Travellers with comfortable pushback seats, charging ports and spacious interiors.
+Whether it's a family vacation, temple tour, wedding, school trip, or corporate outing, we ensure every journey is memorable with well-maintained vehicles and experienced drivers.
+
+</p>
+
+<div class="row mt-4">
+
+<div class="col-6 mb-3">
+
+<div class="card shadow p-3 text-center">
+
+<h2 class="text-warning">
+
+500+
+
+</h2>
+
+<p>
+
+Happy Trips
 
 </p>
 
@@ -346,57 +528,63 @@ Well maintained AC & Non-AC Tempo Travellers with comfortable pushback seats, ch
 
 </div>
 
+<div class="col-6 mb-3">
+
+<div class="card shadow p-3 text-center">
+
+<h2 class="text-warning">
+
+1000+
+
+</h2>
+
+<p>
+
+Happy Customers
+
+</p>
+
 </div>
 
-<!-- Feature Card 2 -->
+</div>
 
-<div class="col-lg-4 col-md-6 mb-4">
+<div class="col-6">
 
-<div class="card h-100 border-0 shadow feature-card">
+<div class="card shadow p-3 text-center">
 
-<div class="card-body text-center">
+<h2 class="text-warning">
 
-<i class="bi bi-shield-check display-3 text-warning"></i>
+24×7
 
-<h4 class="mt-4">
+</h2>
+
+<p>
+
+Customer Support
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-6">
+
+<div class="card shadow p-3 text-center">
+
+<h2 class="text-warning">
+
+100%
+
+</h2>
+
+<p>
 
 Safe Journey
 
-</h4>
-
-<p>
-
-Experienced drivers with years of touring experience across South India.
-
 </p>
 
 </div>
-
-</div>
-
-</div>
-
-<!-- Feature Card 3 -->
-
-<div class="col-lg-4 col-md-6 mb-4">
-
-<div class="card h-100 border-0 shadow feature-card">
-
-<div class="card-body text-center">
-
-<i class="bi bi-geo-alt-fill display-3 text-warning"></i>
-
-<h4 class="mt-4">
-
-Custom Packages
-
-</h4>
-
-<p>
-
-Create your own travel itinerary according to your comfort and budget.
-
-</p>
 
 </div>
 
@@ -410,305 +598,75 @@ Create your own travel itinerary according to your comfort and budget.
 
 </section>
 
-<!-- Popular Packages -->
+<!-- Why Choose Us -->
 
-<section id="packages" class="py-5 bg-dark text-white">
+<section class="py-5 bg-dark text-white">
 
 <div class="container">
 
 <div class="text-center mb-5">
 
-<h2 class="fw-bold">
+<h5 class="text-warning">
 
-Popular Destinations
+WHY CHOOSE US
+
+</h5>
+
+<h2>
+
+Travel with Comfort & Confidence
 
 </h2>
 
-<p>
+</div>
 
-Choose your favourite destination
+<div class="row text-center">
 
-</p>
+<div class="col-lg-3 col-6 mb-4">
+
+<i class="bi bi-shield-check display-3 text-warning"></i>
+
+<h5 class="mt-3">
+
+Safe Journey
+
+</h5>
 
 </div>
 
-<div class="row">
+<div class="col-lg-3 col-6 mb-4">
 
-<!-- Package -->
+<i class="bi bi-person-check display-3 text-warning"></i>
 
-<div class="col-lg-4 mb-4">
+<h5 class="mt-3">
 
-<div class="card border-0 shadow package-card">
+Experienced Drivers
 
-<img src="images/chikmagalur.jpg"
-
-class="card-img-top">
-
-<div class="card-body">
-
-<h4>
-
-Chikkamagaluru
-
-</h4>
-
-<p>
-
-2 Days / 1 Night
-
-</p>
-
-<div class="d-flex justify-content-between">
-
-<span class="badge bg-warning text-dark">
-
-Popular
-
-</span>
-
-<a href="booking.html"
-
-class="btn btn-warning">
-
-Book
-
-</a>
+</h5>
 
 </div>
 
-</div>
+<div class="col-lg-3 col-6 mb-4">
+
+<i class="bi bi-cash-coin display-3 text-warning"></i>
+
+<h5 class="mt-3">
+
+Affordable Pricing
+
+</h5>
 
 </div>
 
-</div>
+<div class="col-lg-3 col-6 mb-4">
 
-<div class="col-lg-4 mb-4">
+<i class="bi bi-headset display-3 text-warning"></i>
 
-<div class="card border-0 shadow package-card">
+<h5 class="mt-3">
 
-<img src="images/coorg.jpg"
+24×7 Support
 
-class="card-img-top">
-
-<div class="card-body">
-
-<h4>
-
-Coorg
-
-</h4>
-
-<p>
-
-2 Days / 1 Night
-
-</p>
-
-<div class="d-flex justify-content-between">
-
-<span class="badge bg-success">
-
-Nature
-
-</span>
-
-<a href="booking.html"
-
-class="btn btn-warning">
-
-Book
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="col-lg-4 mb-4">
-
-<div class="card border-0 shadow package-card">
-
-<img src="images/ooty.jpg"
-
-class="card-img-top">
-
-<div class="card-body">
-
-<h4>
-
-Ooty
-
-</h4>
-
-<p>
-
-3 Days / 2 Nights
-
-</p>
-
-<div class="d-flex justify-content-between">
-
-<span class="badge bg-primary">
-
-Hill Station
-
-</span>
-
-<a href="booking.html"
-
-class="btn btn-warning">
-
-Book
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="col-lg-4 mb-4">
-
-<div class="card border-0 shadow package-card">
-
-<img src="images/kodaikanal.jpg"
-
-class="card-img-top">
-
-<div class="card-body">
-
-<h4>
-
-Kodaikanal
-
-</h4>
-
-<p>
-
-3 Days / 2 Nights
-
-</p>
-
-<div class="d-flex justify-content-between">
-
-<span class="badge bg-danger">
-
-Trending
-
-</span>
-
-<a href="booking.html"
-
-class="btn btn-warning">
-
-Book
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="col-lg-4 mb-4">
-
-<div class="card border-0 shadow package-card">
-
-<img src="images/kerala.jpg"
-
-class="card-img-top">
-
-<div class="card-body">
-
-<h4>
-
-Kerala
-
-</h4>
-
-<p>
-
-5 Days Tour
-
-</p>
-
-<div class="d-flex justify-content-between">
-
-<span class="badge bg-info">
-
-Premium
-
-</span>
-
-<a href="booking.html"
-
-class="btn btn-warning">
-
-Book
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="col-lg-4 mb-4">
-
-<div class="card border-0 shadow package-card">
-
-<img src="images/goa.jpg"
-
-class="card-img-top">
-
-<div class="card-body">
-
-<h4>
-
-Goa
-
-</h4>
-
-<p>
-
-4 Days Tour
-
-</p>
-
-<div class="d-flex justify-content-between">
-
-<span class="badge bg-warning text-dark">
-
-Holiday
-
-</span>
-
-<a href="booking.html"
-
-class="btn btn-warning">
-
-Book
-
-</a>
-
-</div>
-
-</div>
-
-</div>
+</h5>
 
 </div>
 
@@ -717,8 +675,7 @@ Book
 </div>
 
 </section>
-
-<!-- Fleet Section -->
+<!-- Fleet -->
 
 <section id="fleet" class="py-5">
 
@@ -726,294 +683,113 @@ Book
 
 <div class="text-center mb-5">
 
-<h2 class="fw-bold">
+<h5 class="text-warning">OUR FLEET</h5>
 
-Our Premium Fleet
+<h2 class="section-title">
+
+Luxury Tempo Traveller
 
 </h2>
-
-<p>
-
-Comfort that makes every journey memorable
-
-</p>
 
 </div>
 
 <div class="row">
-  <!-- Vehicle 1 -->
 
 <div class="col-lg-4 mb-4">
 
-<div class="card border-0 shadow-lg vehicle-card">
+<div class="card shadow">
 
-<img src="images/traveller1.jpg"
+<img src="images/hero.jpg"
+
 class="card-img-top">
 
 <div class="card-body">
 
-<h4>
-
-12+1 AC Tempo Traveller
-
-</h4>
-
-<ul class="list-group list-group-flush">
-
-<li class="list-group-item">
-✔ Pushback Seats
-</li>
-
-<li class="list-group-item">
-✔ Music System
-</li>
-
-<li class="list-group-item">
-✔ Mobile Charging
-</li>
-
-<li class="list-group-item">
-✔ First Aid Kit
-</li>
-
-<li class="list-group-item">
-✔ Luggage Space
-</li>
-
-</ul>
-
-<div class="text-center mt-4">
-
-<a href="booking.html"
-class="btn btn-warning">
-
-Book Vehicle
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- Vehicle 2 -->
-
-<div class="col-lg-4 mb-4">
-
-<div class="card border-0 shadow-lg vehicle-card">
-
-<img src="images/traveller2.jpg"
-class="card-img-top">
-
-<div class="card-body">
-
-<h4>
-
-17 Seater Traveller
-
-</h4>
-
-<ul class="list-group list-group-flush">
-
-<li class="list-group-item">
-✔ Luxury Interior
-</li>
-
-<li class="list-group-item">
-✔ LED Lighting
-</li>
-
-<li class="list-group-item">
-✔ Pushback Seats
-</li>
-
-<li class="list-group-item">
-✔ Air Conditioner
-</li>
-
-<li class="list-group-item">
-✔ Spacious Cabin
-</li>
-
-</ul>
-
-<div class="text-center mt-4">
-
-<a href="booking.html"
-class="btn btn-warning">
-
-Book Vehicle
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- Vehicle 3 -->
-
-<div class="col-lg-4 mb-4">
-
-<div class="card border-0 shadow-lg vehicle-card">
-
-<img src="images/traveller3.jpg"
-class="card-img-top">
-
-<div class="card-body">
-
-<h4>
-
-Premium Traveller
-
-</h4>
-
-<ul class="list-group list-group-flush">
-
-<li class="list-group-item">
-✔ Tourist Permit
-</li>
-
-<li class="list-group-item">
-✔ Professional Driver
-</li>
-
-<li class="list-group-item">
-✔ Bluetooth Audio
-</li>
-
-<li class="list-group-item">
-✔ Comfortable Ride
-</li>
-
-<li class="list-group-item">
-✔ Family Friendly
-</li>
-
-</ul>
-
-<div class="text-center mt-4">
-
-<a href="booking.html"
-class="btn btn-warning">
-
-Book Vehicle
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- Fare Calculator -->
-
-<section class="py-5 bg-warning">
-
-<div class="container">
-
-<div class="text-center">
-
-<h2 class="fw-bold">
-
-Trip Fare Calculator
-
-</h2>
+<h4>17+1 Luxury Traveller</h4>
 
 <p>
 
-Get your estimated travel cost instantly.
+Comfortable push-back seats, music system, luggage space and experienced driver.
 
 </p>
 
-</div>
+<a href="booking.html"
 
-<div class="row mt-5">
+class="btn btn-warning w-100">
 
-<div class="col-md-3">
+Book Now
 
-<input
-type="number"
-id="km"
-class="form-control"
-placeholder="Distance (KM)">
-
-</div>
-
-<div class="col-md-3">
-
-<select
-id="vehicle"
-class="form-select">
-
-<option value="19">
-
-Non AC (₹19/KM)
-
-</option>
-
-<option value="23">
-
-AC (₹23/KM)
-
-</option>
-
-</select>
-
-</div>
-
-<div class="col-md-3">
-
-<input
-type="number"
-id="days"
-class="form-control"
-placeholder="Trip Days">
-
-</div>
-
-<div class="col-md-3">
-
-<button
-onclick="calculateFare()"
-class="btn btn-dark w-100">
-
-Calculate Fare
-
-</button>
+</a>
 
 </div>
 
 </div>
 
-<div class="mt-5 text-center">
+</div>
 
-<h3>
+<div class="col-lg-4 mb-4">
 
-Estimated Amount
+<div class="card shadow">
 
-</h3>
+<img src="images/traveller2.jpg"
 
-<h1 id="fare">
+class="card-img-top">
 
-₹0
+<div class="card-body">
 
-</h1>
+<h4>Family Tours</h4>
+
+<p>
+
+Perfect for family trips, weddings, school and corporate tours.
+
+</p>
+
+<a href="booking.html"
+
+class="btn btn-warning w-100">
+
+Book Now
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-4 mb-4">
+
+<div class="card shadow">
+
+<img src="images/night.jpg"
+
+class="card-img-top">
+
+<div class="card-body">
+
+<h4>Premium Night View</h4>
+
+<p>
+
+Stylish lighting with premium comfort for long-distance journeys.
+
+</p>
+
+<a href="booking.html"
+
+class="btn btn-warning w-100">
+
+Book Now
+
+</a>
+
+</div>
+
+</div>
+
+</div>
 
 </div>
 
@@ -1021,99 +797,69 @@ Estimated Amount
 
 </section>
 
-<script>
+<!-- Gallery -->
 
-function calculateFare(){
+<section id="gallery"
 
-let km=
-parseFloat(document.getElementById("km").value);
-
-let rate=
-parseFloat(document.getElementById("vehicle").value);
-
-let days=
-parseFloat(document.getElementById("days").value);
-
-if(isNaN(km)||isNaN(days)){
-
-alert("Enter all details");
-
-return;
-
-}
-
-let total=(km*rate)+(days*500);
-
-document.getElementById("fare").innerHTML="₹"+total;
-
-}
-
-</script>
-<!-- =========================
-        GALLERY
-========================= -->
-
-<section id="gallery" class="py-5 bg-dark text-white">
+class="py-5 bg-dark text-white">
 
 <div class="container">
 
 <div class="text-center mb-5">
 
-<h2 class="fw-bold">
+<h5 class="text-warning">
 
-Travel Gallery
+GALLERY
+
+</h5>
+
+<h2>
+
+Our Journey
 
 </h2>
 
-<p>
+</div>
 
-Our Beautiful Travel Memories
+<div class="row">
 
-</p>
+<div class="col-lg-4 col-6 mb-4">
+
+<img src="images/hero.jpg"
+
+class="img-fluid rounded shadow">
 
 </div>
 
-<div class="row g-4">
+<div class="col-lg-4 col-6 mb-4">
 
-<div class="col-lg-4">
+<img src="images/traveller2.jpg"
 
-<img src="images/gallery1.jpg"
-class="img-fluid rounded shadow gallery-img">
-
-</div>
-
-<div class="col-lg-4">
-
-<img src="images/gallery2.jpg"
-class="img-fluid rounded shadow gallery-img">
+class="img-fluid rounded shadow">
 
 </div>
 
-<div class="col-lg-4">
+<div class="col-lg-4 col-6 mb-4">
 
-<img src="images/gallery3.jpg"
-class="img-fluid rounded shadow gallery-img">
+<img src="images/night.jpg"
 
-</div>
-
-<div class="col-lg-4">
-
-<img src="images/gallery4.jpg"
-class="img-fluid rounded shadow gallery-img">
+class="img-fluid rounded shadow">
 
 </div>
 
-<div class="col-lg-4">
+<div class="col-lg-6 mb-4">
 
-<img src="images/gallery5.jpg"
-class="img-fluid rounded shadow gallery-img">
+<img src="images/customers.jpg"
+
+class="img-fluid rounded shadow">
 
 </div>
 
-<div class="col-lg-4">
+<div class="col-lg-6 mb-4">
 
-<img src="images/gallery6.jpg"
-class="img-fluid rounded shadow gallery-img">
+<img src="images/logo.jpg"
+
+class="img-fluid rounded shadow">
 
 </div>
 
@@ -1123,103 +869,79 @@ class="img-fluid rounded shadow gallery-img">
 
 </section>
 
-<!-- =========================
-      CUSTOMER REVIEWS
-========================= -->
+<!-- Customer Reviews -->
 
 <section class="py-5">
 
 <div class="container">
 
-<div class="text-center mb-5">
+<div class="text-center">
 
-<h2 class="fw-bold">
+<h5 class="text-warning">
 
-Happy Customers
+CUSTOMER REVIEWS
+
+</h5>
+
+<h2 class="section-title">
+
+What Our Customers Say
 
 </h2>
 
 </div>
 
-<div class="row">
+<div class="row mt-5">
 
-<div class="col-md-4">
+<div class="col-lg-4 mb-4">
 
-<div class="card border-0 shadow-lg h-100">
+<div class="card shadow p-4">
 
-<div class="card-body">
+<h5>⭐⭐⭐⭐⭐</h5>
 
-⭐⭐⭐⭐⭐
+<p>
 
-<p class="mt-3">
-
-Wonderful experience.
-Vehicle was neat,
-driver was friendly.
+Excellent service. Very clean vehicle and polite driver.
 
 </p>
 
-<h5>
-
-Rahul
-
-</h5>
+<b>- Happy Customer</b>
 
 </div>
 
 </div>
 
-</div>
+<div class="col-lg-4 mb-4">
 
-<div class="col-md-4">
+<div class="card shadow p-4">
 
-<div class="card border-0 shadow-lg h-100">
+<h5>⭐⭐⭐⭐⭐</h5>
 
-<div class="card-body">
+<p>
 
-⭐⭐⭐⭐⭐
-
-<p class="mt-3">
-
-Best Tempo Traveller
-service in Karnataka.
+Comfortable journey for our family trip. Highly recommended.
 
 </p>
 
-<h5>
-
-Priya
-
-</h5>
+<b>- Family Trip</b>
 
 </div>
 
 </div>
 
-</div>
+<div class="col-lg-4 mb-4">
 
-<div class="col-md-4">
+<div class="card shadow p-4">
 
-<div class="card border-0 shadow-lg h-100">
+<h5>⭐⭐⭐⭐⭐</h5>
 
-<div class="card-body">
+<p>
 
-⭐⭐⭐⭐⭐
-
-<p class="mt-3">
-
-Highly recommended
-for family trips.
+Affordable pricing and professional service.
 
 </p>
 
-<h5>
-
-Arun
-
-</h5>
-
-</div>
+<b>- Corporate Client</b>
 
 </div>
 
@@ -1231,69 +953,81 @@ Arun
 
 </section>
 
-<!-- =========================
-      CONTACT
-========================= -->
+<!-- Contact -->
 
-<section id="contact" class="py-5">
+<section id="contact"
 
-<div class="container">
+class="py-5 bg-black text-white">
 
-<h2 class="text-center text-warning">
+<div class="container text-center">
+
+<h2 class="text-warning">
 
 Kalki Pradee Tours & Travels
 
 </h2>
 
-<div class="text-center mt-4">
+<p>
 
-<h5>
+<i class="bi bi-telephone-fill"></i>
 
-📞 9880730323
+9880730323
 
-</h5>
+|
 
-<h5>
+9113249724
 
-📞 9113249724
-
-</h5>
+</p>
 
 <p>
 
-📍 Magadi Main Road,
+<i class="bi bi-geo-alt-fill"></i>
+
+Magadi Main Road,
+
 Honaganahatti Stadium,
+
 Bengaluru
 
 </p>
 
-</div>
+<a href="booking.html"
+
+class="btn btn-warning btn-lg">
+
+Book Your Trip
+
+</a>
 
 </div>
 
 </section>
 
-<!-- Floating Buttons -->
-
-<a href="tel:9880730323"
-class="btn btn-warning rounded-circle floating-call">
-
-<i class="bi bi-telephone-fill"></i>
-
-</a>
-
 <a href="https://wa.me/919880730323"
-class="btn btn-success rounded-circle floating-whatsapp">
+
+class="whatsapp"
+
+target="_blank">
 
 <i class="bi bi-whatsapp"></i>
 
 </a>
 
-<!-- Footer -->
+<a href="tel:+919880730323"
 
-<footer class="bg-black text-center text-white py-4">
+class="call">
 
-<div class="container">
+<i class="bi bi-telephone-fill"></i>
+
+</a>
+
+<footer>
+
+<img src="images/logo.jpg"
+
+width="80"
+
+class="rounded-circle mb-3">
 
 <h3 class="text-warning">
 
@@ -1303,15 +1037,9 @@ Kalki Pradee Tours & Travels
 
 <p>
 
-Travel Beyond Limits
+Safe • Comfortable • Affordable
 
 </p>
-  <a href="tel:+919xxxxxxxxx"
-class="call-btn">
-
-<i class="bi bi-telephone-fill"></i>
-
-  </a>
 
 <p>
 
@@ -1321,15 +1049,10 @@ All Rights Reserved.
 
 </p>
 
-</div>
-
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<script type="module" src="js/app.js"></script>
-
 </body>
 
-  </html>
-  
+</html>
