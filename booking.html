@@ -23,12 +23,12 @@ href="css/style.css">
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-dark bg-dark">
 
 <div class="container">
 
-<a class="navbar-brand text-warning fw-bold"
-href="index.html">
+<a href="index.html"
+class="navbar-brand text-warning fw-bold">
 
 Kalki Pradee Tours & Travels
 
@@ -100,7 +100,6 @@ Pickup Location
 type="text"
 id="pickup"
 class="form-control"
-placeholder="Enter Pickup Location"
 required>
 
 </div>
@@ -117,14 +116,13 @@ Destination
 type="text"
 id="destination"
 class="form-control"
-placeholder="Enter Destination"
 required>
 
 </div>
 
 <div class="row">
 
-<div class="col-md-6 mb-3">
+<div class="col-md-6">
 
 <label class="form-label">
 
@@ -140,7 +138,7 @@ required>
 
 </div>
 
-<div class="col-md-6 mb-3">
+<div class="col-md-6">
 
 <label class="form-label">
 
@@ -159,13 +157,14 @@ required>
 </div>
 
 </div>
-<div class="row">
 
-<div class="col-md-6 mb-3">
+<div class="row mt-3">
+
+<div class="col-md-6">
 
 <label class="form-label">
 
-Vehicle Type
+Vehicle
 
 </label>
 
@@ -174,21 +173,17 @@ id="vehicle"
 class="form-select"
 required>
 
-<option value="">
-
-Select Vehicle
-
-</option>
+<option value="">Select Vehicle</option>
 
 <option value="19">
 
-Non AC Tempo Traveller (₹19/KM)
+Non AC Traveller (₹19/KM)
 
 </option>
 
 <option value="23">
 
-AC Tempo Traveller (₹23/KM)
+AC Traveller (₹23/KM)
 
 </option>
 
@@ -196,7 +191,7 @@ AC Tempo Traveller (₹23/KM)
 
 </div>
 
-<div class="col-md-6 mb-3">
+<div class="col-md-6">
 
 <label class="form-label">
 
@@ -208,14 +203,12 @@ Distance (KM)
 type="number"
 id="distance"
 class="form-control"
-placeholder="Enter Distance"
 required>
 
 </div>
 
 </div>
-
-<div class="mb-3">
+<div class="mt-3">
 
 <label class="form-label">
 
@@ -233,7 +226,7 @@ required>
 
 </div>
 
-<div class="mb-3">
+<div class="mt-3">
 
 <label class="form-label">
 
@@ -249,7 +242,7 @@ placeholder="Write your requirements..."></textarea>
 
 </div>
 
-<div class="alert alert-warning">
+<div class="alert alert-warning mt-4">
 
 <h5 class="mb-2">
 
@@ -301,6 +294,7 @@ Book Now
 </div>
 
 </section>
+
 <footer class="bg-dark text-white text-center py-4">
 
 <div class="container">
@@ -308,8 +302,6 @@ Book Now
 <p class="mb-0">
 
 © 2026 Kalki Pradee Tours & Travels
-
-All Rights Reserved.
 
 </p>
 
@@ -327,7 +319,25 @@ addDoc
 
 import { app, auth } from "./js/firebase.js";
 
-const db=getFirestore(app);
+const db = getFirestore(app);
+
+auth.onAuthStateChanged((user)=>{
+
+if(!user){
+
+window.location.href="login.html";
+
+return;
+
+}
+
+if(user.displayName){
+
+document.getElementById("name").value=user.displayName;
+
+}
+
+});
 
 const calculateBtn=document.getElementById("calculateBtn");
 
@@ -363,7 +373,7 @@ try{
 
 await addDoc(collection(db,"bookings"),{
 
-email: auth.currentUser.email,
+email:auth.currentUser.email,
 
 name:document.getElementById("name").value,
 
@@ -392,37 +402,14 @@ status:"Pending",
 createdAt:new Date()
 
 });
-mobile:document.getElementById("mobile").value,
-
-pickup:document.getElementById("pickup").value,
-
-destination:document.getElementById("destination").value,
-
-journeyDate:document.getElementById("journeyDate").value,
-
-passengers:document.getElementById("passengers").value,
-
-vehicle:document.getElementById("vehicle").value,
-
-distance:document.getElementById("distance").value,
-
-days:document.getElementById("days").value,
-
-message:document.getElementById("message").value,
-
-fare:document.getElementById("totalFare").innerText,
-
-createdAt:new Date()
-
-});
-
 alert("Booking Submitted Successfully!");
 
 bookingForm.reset();
 
 document.getElementById("totalFare").innerHTML="₹0";
 
-}catch(error){
+}
+catch(error){
 
 alert(error.message);
 
@@ -435,5 +422,3 @@ alert(error.message);
 </body>
 
 </html>
-
-
