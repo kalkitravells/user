@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Kalki Pradee Tours & Travels</title>
@@ -13,11 +11,7 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<link rel="stylesheet"
-href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
 <style>
 
@@ -25,43 +19,59 @@ rel="stylesheet">
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Poppins',sans-serif;
 scroll-behavior:smooth;
+font-family:Poppins,sans-serif;
 }
 
 body{
-background:#f8f9fa;
+background:#000;
+color:#fff;
 overflow-x:hidden;
 }
 
 .navbar{
 background:#000;
-padding:15px 0;
-transition:.4s;
+padding:12px 15px;
+box-shadow:0 3px 15px rgba(0,0,0,.5);
 }
 
 .navbar-brand{
-font-weight:700;
-color:#ffc107!important;
+display:flex;
+align-items:center;
+font-size:32px;
+font-weight:bold;
+color:#FFC107!important;
+}
+
+.navbar-brand img{
+width:65px;
+height:65px;
+border-radius:50%;
+margin-right:12px;
+}
+
+.navbar-toggler{
+background:#FFC107;
+border:none;
+padding:10px 15px;
 }
 
 .nav-link{
 color:#fff!important;
-margin-left:15px;
-font-weight:500;
-}
-
-.nav-link:hover{
-color:#ffc107!important;
+font-size:22px;
+margin:8px 0;
 }
 
 .hero{
 
-height:100vh;
+min-height:100vh;
 
 background:
+
 linear-gradient(rgba(0,0,0,.55),
+
 rgba(0,0,0,.55)),
+
 url("images/hero.jpg");
 
 background-size:cover;
@@ -72,39 +82,103 @@ display:flex;
 
 align-items:center;
 
+padding:140px 20px 60px;
+
 }
 
 .hero h1{
 
-font-size:60px;
+font-size:55px;
 
-font-weight:700;
+font-weight:800;
 
-color:white;
-
-animation:slideDown 1.2s;
+color:#FFC107;
 
 }
 
 .hero p{
 
-color:#eee;
+font-size:24px;
 
-font-size:20px;
+margin-top:20px;
 
-margin:25px 0;
-
-animation:fadeIn 2s;
+line-height:1.7;
 
 }
 
-.btn-warning{
+.scroll-text{
 
-padding:12px 35px;
+margin-top:25px;
 
-font-weight:600;
+font-size:22px;
+
+color:#FFC107;
+
+font-weight:bold;
+
+animation:bounce 1.3s infinite;
+
+}
+
+@keyframes bounce{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-8px);
+
+}
+
+}
+
+.btn-main{
+
+background:#FFC107;
+
+color:#000;
+
+padding:16px 35px;
+
+font-size:24px;
+
+font-weight:bold;
 
 border-radius:50px;
+
+text-decoration:none;
+
+margin-right:15px;
+
+display:inline-block;
+
+margin-top:20px;
+
+}
+
+.btn-whatsapp{
+
+background:#25D366;
+
+color:#fff;
+
+padding:16px 35px;
+
+font-size:24px;
+
+font-weight:bold;
+
+border-radius:50px;
+
+text-decoration:none;
+
+display:inline-block;
+
+margin-top:20px;
 
 }
 
@@ -112,161 +186,67 @@ border-radius:50px;
 
 width:100%;
 
-animation:float 3s infinite ease-in-out;
+border-radius:25px;
+
+box-shadow:0 10px 35px rgba(0,0,0,.45);
 
 }
 
-@keyframes float{
+@media(max-width:768px){
 
-0%{transform:translateY(0);}
+.navbar-brand{
 
-50%{transform:translateY(-15px);}
-
-100%{transform:translateY(0);}
+font-size:18px;
 
 }
 
-@keyframes slideDown{
+.navbar-brand img{
 
-from{
+width:50px;
 
-opacity:0;
-
-transform:translateY(-60px);
+height:50px;
 
 }
 
-to{
+.hero{
 
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-}
-
-@keyframes fadeIn{
-
-from{
-
-opacity:0;
-
-}
-
-to{
-
-opacity:1;
-
-}
-
-}
-
-.section-title{
-
-font-size:38px;
-
-font-weight:700;
-
-color:#111;
-
-margin-bottom:20px;
-
-}
-
-.whatsapp{
-
-position:fixed;
-
-bottom:20px;
-
-right:20px;
-
-width:60px;
-
-height:60px;
-
-background:#25D366;
-
-border-radius:50%;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-font-size:30px;
-
-color:#fff;
-
-text-decoration:none;
-
-box-shadow:0 10px 25px rgba(0,0,0,.3);
-
-z-index:999;
-
-}
-
-.call{
-
-position:fixed;
-
-bottom:95px;
-
-right:20px;
-
-width:60px;
-
-height:60px;
-
-background:#ffc107;
-
-border-radius:50%;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-font-size:28px;
-
-color:#000;
-
-text-decoration:none;
-
-box-shadow:0 10px 25px rgba(0,0,0,.3);
-
-z-index:999;
-
-}
-
-.card{
-
-transition:.4s;
-
-border:none;
-
-}
-
-.card:hover{
-
-transform:translateY(-10px);
-
-}
-
-footer{
-
-background:#000;
-
-color:white;
-
-padding:30px;
+padding-top:120px;
 
 text-align:center;
 
-margin-top:50px;
+}
+
+.hero h1{
+
+font-size:34px;
+
+}
+
+.hero p{
+
+font-size:20px;
+
+}
+
+.btn-main,
+
+.btn-whatsapp{
+
+display:block;
+
+width:100%;
+
+margin:12px 0;
+
+font-size:22px;
+
+}
+
+.scroll-text{
+
+font-size:18px;
+
+}
 
 }
 
@@ -275,99 +255,57 @@ margin-top:50px;
 </head>
 
 <body>
-  <!-- Navbar -->
-
-<nav class="navbar navbar-expand-lg fixed-top">
+  <nav class="navbar navbar-expand-lg fixed-top">
 
 <div class="container">
 
 <a class="navbar-brand" href="#">
 
-<img src="images/logo.jpg"
-
-width="45"
-
-class="rounded-circle me-2">
+<img src="images/logo.jpg" alt="Logo">
 
 Kalki Pradee Tours & Travels
 
 </a>
 
-<button
-
-class="navbar-toggler bg-warning"
-
+<button class="navbar-toggler" type="button"
 data-bs-toggle="collapse"
-
 data-bs-target="#menu">
 
 <span class="navbar-toggler-icon"></span>
 
 </button>
 
-<div class="collapse navbar-collapse"
-
-id="menu">
+<div class="collapse navbar-collapse" id="menu">
 
 <ul class="navbar-nav ms-auto">
 
 <li class="nav-item">
 
-<a class="nav-link"
-
-href="#home">
-
-Home
-
-</a>
+<a class="nav-link" href="#home">Home</a>
 
 </li>
 
 <li class="nav-item">
 
-<a class="nav-link"
-
-href="#about">
-
-About
-
-</a>
+<a class="nav-link" href="#services">Services</a>
 
 </li>
 
 <li class="nav-item">
 
-<a class="nav-link"
-
-href="#fleet">
-
-Fleet
-
-</a>
+<a class="nav-link" href="booking.html">Book Now</a>
 
 </li>
 
 <li class="nav-item">
 
-<a class="nav-link"
-
-href="#gallery">
-
-Gallery
-
-</a>
+<a class="nav-link" href="#gallery">Gallery</a>
 
 </li>
 
 <li class="nav-item">
 
-<a class="nav-link"
-
-href="#contact">
-
-Contact
-
-</a>
+<a class="nav-link" href="#contact">Contact</a>
 
 </li>
 
@@ -379,13 +317,7 @@ Contact
 
 </nav>
 
-<!-- Hero -->
-
-<section
-
-class="hero"
-
-id="home">
+<section class="hero" id="home">
 
 <div class="container">
 
@@ -393,51 +325,49 @@ id="home">
 
 <div class="col-lg-6">
 
-<h5 class="text-warning">
-
-WELCOME TO
-
-</h5>
-
 <h1>
 
-Travel Without Limits
+Ride With Comfort,<br>
+
+Travel With Trust.
 
 </h1>
 
 <p>
 
-Luxury Tempo Traveller Rental
+Tempo Traveller available for
 
-for Family Trips,
+Family Trips,
+
+Tour Packages,
+
+School & College Trips,
 
 Pilgrimage Tours,
 
 Corporate Tours,
 
-School & College Trips,
+Airport Pickup & Drop,
 
 and South India Packages.
 
 </p>
 
-<a
+<div class="scroll-text">
 
-href="booking.html"
+⬆ Scroll Up to Open Menu
 
-class="btn btn-warning btn-lg me-3">
+</div>
+
+<a href="booking.html" class="btn-main">
 
 Book Now
 
 </a>
 
-<a
+<a href="https://wa.me/919880730323"
 
-href="https://wa.me/919880730323"
-
-target="_blank"
-
-class="btn btn-success btn-lg">
+class="btn-whatsapp">
 
 <i class="bi bi-whatsapp"></i>
 
@@ -453,7 +383,9 @@ WhatsApp
 
 src="images/hero.jpg"
 
-class="img-fluid rounded-4 shadow-lg">
+alt="Tempo Traveller"
+
+class="img-fluid">
 
 </div>
 
@@ -462,125 +394,39 @@ class="img-fluid rounded-4 shadow-lg">
 </div>
 
 </section>
-<!-- About -->
-
-<section id="about" class="py-5">
+<section id="services" class="py-5 bg-light">
 
 <div class="container">
 
-<div class="row align-items-center">
+<h2 class="text-center text-dark fw-bold mb-5">
 
-<div class="col-lg-6">
-
-<img
-
-src="images/traveller2.jpg"
-
-class="img-fluid rounded-4 shadow-lg">
-
-</div>
-
-<div class="col-lg-6">
-
-<h5 class="text-warning">
-
-ABOUT US
-
-</h5>
-
-<h2 class="section-title">
-
-Kalki Pradee Tours & Travels
+🚐 Our Services
 
 </h2>
 
-<p>
+<div class="row g-4">
 
-Kalki Pradee Tours & Travels is a trusted Tempo Traveller rental service providing safe, comfortable, and affordable travel across Karnataka and South India.
+<div class="col-md-4">
 
-</p>
+<div class="card h-100 shadow border-0">
 
-<p>
+<img src="images/traveller1.jpg"
 
-Whether it's a family vacation, temple tour, wedding, school trip, or corporate outing, we ensure every journey is memorable with well-maintained vehicles and experienced drivers.
+class="card-img-top"
 
-</p>
+style="height:250px;object-fit:cover;">
 
-<div class="row mt-4">
+<div class="card-body text-center">
 
-<div class="col-6 mb-3">
+<h4 class="fw-bold">
 
-<div class="card shadow p-3 text-center">
+Family Tours
 
-<h2 class="text-warning">
-
-500+
-
-</h2>
+</h4>
 
 <p>
 
-Happy Trips
-
-</p>
-
-</div>
-
-</div>
-
-<div class="col-6 mb-3">
-
-<div class="card shadow p-3 text-center">
-
-<h2 class="text-warning">
-
-1000+
-
-</h2>
-
-<p>
-
-Happy Customers
-
-</p>
-
-</div>
-
-</div>
-
-<div class="col-6">
-
-<div class="card shadow p-3 text-center">
-
-<h2 class="text-warning">
-
-24×7
-
-</h2>
-
-<p>
-
-Customer Support
-
-</p>
-
-</div>
-
-</div>
-
-<div class="col-6">
-
-<div class="card shadow p-3 text-center">
-
-<h2 class="text-warning">
-
-100%
-
-</h2>
-
-<p>
-
-Safe Journey
+Enjoy comfortable family trips with spacious seating and experienced drivers.
 
 </p>
 
@@ -590,358 +436,129 @@ Safe Journey
 
 </div>
 
-</div>
+<div class="col-md-4">
 
-</div>
-
-</div>
-
-</section>
-
-<!-- Why Choose Us -->
-
-<section class="py-5 bg-dark text-white">
-
-<div class="container">
-
-<div class="text-center mb-5">
-
-<h5 class="text-warning">
-
-WHY CHOOSE US
-
-</h5>
-
-<h2>
-
-Travel with Comfort & Confidence
-
-</h2>
-
-</div>
-
-<div class="row text-center">
-
-<div class="col-lg-3 col-6 mb-4">
-
-<i class="bi bi-shield-check display-3 text-warning"></i>
-
-<h5 class="mt-3">
-
-Safe Journey
-
-</h5>
-
-</div>
-
-<div class="col-lg-3 col-6 mb-4">
-
-<i class="bi bi-person-check display-3 text-warning"></i>
-
-<h5 class="mt-3">
-
-Experienced Drivers
-
-</h5>
-
-</div>
-
-<div class="col-lg-3 col-6 mb-4">
-
-<i class="bi bi-cash-coin display-3 text-warning"></i>
-
-<h5 class="mt-3">
-
-Affordable Pricing
-
-</h5>
-
-</div>
-
-<div class="col-lg-3 col-6 mb-4">
-
-<i class="bi bi-headset display-3 text-warning"></i>
-
-<h5 class="mt-3">
-
-24×7 Support
-
-</h5>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-<!-- Fleet -->
-
-<section id="fleet" class="py-5">
-
-<div class="container">
-
-<div class="text-center mb-5">
-
-<h5 class="text-warning">OUR FLEET</h5>
-
-<h2 class="section-title">
-
-Luxury Tempo Traveller
-
-</h2>
-
-</div>
-
-<div class="row">
-
-<div class="col-lg-4 mb-4">
-
-<div class="card shadow">
-
-<img src="images/hero.jpg"
-
-class="card-img-top">
-
-<div class="card-body">
-
-<h4>17+1 Luxury Traveller</h4>
-
-<p>
-
-Comfortable push-back seats, music system, luggage space and experienced driver.
-
-</p>
-
-<a href="booking.html"
-
-class="btn btn-warning w-100">
-
-Book Now
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="col-lg-4 mb-4">
-
-<div class="card shadow">
+<div class="card h-100 shadow border-0">
 
 <img src="images/traveller2.jpg"
 
-class="card-img-top">
+class="card-img-top"
 
-<div class="card-body">
+style="height:250px;object-fit:cover;">
 
-<h4>Family Tours</h4>
+<div class="card-body text-center">
 
-<p>
+<h4 class="fw-bold">
 
-Perfect for family trips, weddings, school and corporate tours.
+School & College Trips
 
-</p>
-
-<a href="booking.html"
-
-class="btn btn-warning w-100">
-
-Book Now
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="col-lg-4 mb-4">
-
-<div class="card shadow">
-
-<img src="images/night.jpg"
-
-class="card-img-top">
-
-<div class="card-body">
-
-<h4>Premium Night View</h4>
+</h4>
 
 <p>
 
-Stylish lighting with premium comfort for long-distance journeys.
+Safe and reliable transportation for educational tours and excursions.
 
 </p>
 
-<a href="booking.html"
-
-class="btn btn-warning w-100">
-
-Book Now
-
-</a>
-
 </div>
 
 </div>
 
 </div>
 
-</div>
+<div class="col-md-4">
 
-</div>
+<div class="card h-100 shadow border-0">
 
-</section>
+<img src="images/traveller3.jpg"
 
-<!-- Gallery -->
+class="card-img-top"
 
-<section id="gallery"
+style="height:250px;object-fit:cover;">
 
-class="py-5 bg-dark text-white">
+<div class="card-body text-center">
 
-<div class="container">
+<h4 class="fw-bold">
 
-<div class="text-center mb-5">
+Corporate & Airport Pickup
 
-<h5 class="text-warning">
+</h4>
 
-GALLERY
+<p>
 
-</h5>
+Professional travel services for companies, airport transfers and business trips.
 
-<h2>
-
-Our Journey
-
-</h2>
-
-</div>
-
-<div class="row">
-
-<div class="col-lg-4 col-6 mb-4">
-
-<img src="images/hero.jpg"
-
-class="img-fluid rounded shadow">
-
-</div>
-
-<div class="col-lg-4 col-6 mb-4">
-
-<img src="images/traveller2.jpg"
-
-class="img-fluid rounded shadow">
-
-</div>
-
-<div class="col-lg-4 col-6 mb-4">
-
-<img src="images/night.jpg"
-
-class="img-fluid rounded shadow">
-
-</div>
-
-<div class="col-lg-6 mb-4">
-
-<img src="images/customers.jpg"
-
-class="img-fluid rounded shadow">
-
-</div>
-
-<div class="col-lg-6 mb-4">
-
-<img src="images/logo.jpg"
-
-class="img-fluid rounded shadow">
+</p>
 
 </div>
 
 </div>
 
 </div>
-
-</section>
-
-<!-- Customer Reviews -->
-
-<section class="py-5">
-
-<div class="container">
-
-<div class="text-center">
-
-<h5 class="text-warning">
-
-CUSTOMER REVIEWS
-
-</h5>
-
-<h2 class="section-title">
-
-What Our Customers Say
-
-</h2>
 
 </div>
 
 <div class="row mt-5">
 
-<div class="col-lg-4 mb-4">
+<div class="col-md-3">
 
-<div class="card shadow p-4">
+<div class="card text-center p-4 shadow">
 
-<h5>⭐⭐⭐⭐⭐</h5>
+<h3 class="text-warning">
 
-<p>
+12+1
 
-Excellent service. Very clean vehicle and polite driver.
+</h3>
 
-</p>
-
-<b>- Happy Customer</b>
+<p>Seater Traveller</p>
 
 </div>
 
 </div>
 
-<div class="col-lg-4 mb-4">
+<div class="col-md-3">
 
-<div class="card shadow p-4">
+<div class="card text-center p-4 shadow">
 
-<h5>⭐⭐⭐⭐⭐</h5>
+<h3 class="text-warning">
 
-<p>
+17+1
 
-Comfortable journey for our family trip. Highly recommended.
+</h3>
 
-</p>
-
-<b>- Family Trip</b>
+<p>Seater Traveller</p>
 
 </div>
 
 </div>
 
-<div class="col-lg-4 mb-4">
+<div class="col-md-3">
 
-<div class="card shadow p-4">
+<div class="card text-center p-4 shadow">
 
-<h5>⭐⭐⭐⭐⭐</h5>
+<h3 class="text-warning">
 
-<p>
+AC
 
-Affordable pricing and professional service.
+</h3>
 
-</p>
+<p>₹23 Per KM</p>
 
-<b>- Corporate Client</b>
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card text-center p-4 shadow">
+
+<h3 class="text-warning">
+
+Non AC
+
+</h3>
+
+<p>₹19 Per KM</p>
 
 </div>
 
@@ -952,88 +569,368 @@ Affordable pricing and professional service.
 </div>
 
 </section>
+<section id="gallery" class="py-5">
 
-<!-- Contact -->
+<div class="container">
 
-<section id="contact"
+<h2 class="text-center text-warning fw-bold mb-5">
 
-class="py-5 bg-black text-white">
-
-<div class="container text-center">
-
-<h2 class="text-warning">
-
-Kalki Pradee Tours & Travels
+📸 Our Tempo Traveller Gallery
 
 </h2>
 
-<p>
+<div class="row g-4">
 
-<i class="bi bi-telephone-fill"></i>
+<div class="col-md-4">
 
-9880730323
+<img src="images/gallery1.jpg"
 
-|
+class="img-fluid rounded shadow"
 
-9113249724
+style="height:260px;width:100%;object-fit:cover;">
+
+</div>
+
+<div class="col-md-4">
+
+<img src="images/gallery2.jpg"
+
+class="img-fluid rounded shadow"
+
+style="height:260px;width:100%;object-fit:cover;">
+
+</div>
+
+<div class="col-md-4">
+
+<img src="images/gallery3.jpg"
+
+class="img-fluid rounded shadow"
+
+style="height:260px;width:100%;object-fit:cover;">
+
+</div>
+
+<div class="col-md-4">
+
+<img src="images/gallery4.jpg"
+
+class="img-fluid rounded shadow"
+
+style="height:260px;width:100%;object-fit:cover;">
+
+</div>
+
+<div class="col-md-4">
+
+<img src="images/gallery5.jpg"
+
+class="img-fluid rounded shadow"
+
+style="height:260px;width:100%;object-fit:cover;">
+
+</div>
+
+<div class="col-md-4">
+
+<img src="images/gallery6.jpg"
+
+class="img-fluid rounded shadow"
+
+style="height:260px;width:100%;object-fit:cover;">
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="py-5 bg-dark text-white">
+
+<div class="container">
+
+<h2 class="text-center text-warning fw-bold mb-5">
+
+⭐ Why Choose Us?
+
+</h2>
+
+<div class="row text-center">
+
+<div class="col-md-3">
+
+<h1>🚐</h1>
+
+<h4>Clean Vehicles</h4>
+
+<p>Well-maintained and sanitized Tempo Travellers.</p>
+
+</div>
+
+<div class="col-md-3">
+
+<h1>👨‍✈️</h1>
+
+<h4>Experienced Drivers</h4>
+
+<p>Professional, polite and experienced drivers.</p>
+
+</div>
+
+<div class="col-md-3">
+
+<h1>💰</h1>
+
+<h4>Affordable Price</h4>
+
+<p>AC ₹23/KM & Non AC ₹19/KM.</p>
+
+</div>
+
+<div class="col-md-3">
+
+<h1>🕒</h1>
+
+<h4>24×7 Support</h4>
+
+<p>Always ready to assist you during your trip.</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="py-5">
+
+<div class="container">
+
+<h2 class="text-center text-warning fw-bold mb-5">
+
+⭐ Customer Reviews
+
+</h2>
+
+<div class="row">
+
+<div class="col-md-4">
+
+<div class="card p-4 shadow">
+
+⭐⭐⭐⭐⭐
+
+<p class="mt-3">
+
+Very clean vehicle and friendly driver. Highly recommended.
 
 </p>
 
+<h5>- Ravi Kumar</h5>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card p-4 shadow">
+
+⭐⭐⭐⭐⭐
+
+<p class="mt-3">
+
+Our family trip was comfortable and enjoyable.
+
+</p>
+
+<h5>- Sneha</h5>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card p-4 shadow">
+
+⭐⭐⭐⭐⭐
+
+<p class="mt-3">
+
+On-time service and reasonable pricing.
+
+</p>
+
+<h5>- Mahesh</h5>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<section id="contact" class="py-5 bg-warning">
+
+<div class="container">
+
+<h2 class="text-center fw-bold mb-5 text-dark">
+
+📞 Contact Us
+
+</h2>
+
+<div class="row">
+
+<div class="col-lg-6">
+
+<div class="card p-4 shadow border-0">
+
+<h4 class="mb-4">
+
+Kalki Pradee Tours & Travels
+
+</h4>
+
 <p>
 
-<i class="bi bi-geo-alt-fill"></i>
+<i class="bi bi-geo-alt-fill text-danger"></i>
+
+<b>Address:</b><br>
 
 Magadi Main Road,
 
 Honaganahatti Stadium,
 
-Bengaluru
+Bengaluru, Karnataka
 
 </p>
 
-<a href="booking.html"
+<p>
 
-class="btn btn-warning btn-lg">
+<i class="bi bi-telephone-fill text-success"></i>
 
-Book Your Trip
+<b>Call:</b>
+
+<a href="tel:+919880730323" class="text-decoration-none">
+
+9880730323
 
 </a>
+
+</p>
+
+<p>
+
+<i class="bi bi-telephone-fill text-success"></i>
+
+<b>Call:</b>
+
+<a href="tel:+919113249724" class="text-decoration-none">
+
+9113249724
+
+</a>
+
+</p>
+
+<p>
+
+<i class="bi bi-envelope-fill text-primary"></i>
+
+<b>Email:</b>
+
+kalkitravells@gmail.com
+
+</p>
+
+<p>
+
+<i class="bi bi-clock-fill text-warning"></i>
+
+<b>Available:</b>
+
+24 × 7
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-6">
+
+<div class="ratio ratio-16x9 rounded shadow">
+
+<iframe
+
+src="https://www.google.com/maps?q=Honaganahatti%20Stadium%20Magadi%20Main%20Road%20Bengaluru&output=embed"
+
+allowfullscreen
+
+loading="lazy">
+
+</iframe>
+
+</div>
+
+</div>
+
+</div>
 
 </div>
 
 </section>
 
-<a href="https://wa.me/919880730323"
-
-class="whatsapp"
-
-target="_blank">
-
-<i class="bi bi-whatsapp"></i>
-
-</a>
-
 <a href="tel:+919880730323"
 
-class="call">
+class="btn btn-success rounded-circle"
+
+style="position:fixed;bottom:25px;right:20px;width:65px;height:65px;font-size:28px;display:flex;align-items:center;justify-content:center;z-index:999;">
 
 <i class="bi bi-telephone-fill"></i>
 
 </a>
 
-<footer>
+<a href="https://wa.me/919880730323"
 
-<img src="images/logo.jpg"
+target="_blank"
 
-width="80"
+class="btn btn-success rounded-circle"
 
-class="rounded-circle mb-3">
+style="position:fixed;bottom:100px;right:20px;width:65px;height:65px;font-size:28px;display:flex;align-items:center;justify-content:center;z-index:999;background:#25D366;">
 
-<h3 class="text-warning">
+<i class="bi bi-whatsapp"></i>
+
+</a>
+
+<a href="https://wa.me/919113249724"
+
+target="_blank"
+
+class="btn btn-success rounded-circle"
+
+style="position:fixed;bottom:175px;right:20px;width:65px;height:65px;font-size:28px;display:flex;align-items:center;justify-content:center;z-index:999;background:#25D366;">
+
+<i class="bi bi-whatsapp"></i>
+
+</a>
+
+<footer class="bg-black text-center text-white py-4">
+
+<div class="container">
+
+<h4 class="text-warning">
 
 Kalki Pradee Tours & Travels
 
-</h3>
+</h4>
 
 <p>
 
@@ -1041,17 +938,73 @@ Safe • Comfortable • Affordable
 
 </p>
 
-<p>
+<p class="mb-0">
 
-© 2026 Kalki Pradee Tours & Travels
+© 2026 Kalki Pradee Tours & Travels.
 
 All Rights Reserved.
 
 </p>
 
-</footer>
+</div>
 
+</footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+
+// Close mobile menu after clicking a link
+document.querySelectorAll(".nav-link").forEach(link=>{
+
+link.addEventListener("click",()=>{
+
+const menu=document.querySelector(".navbar-collapse");
+
+if(menu.classList.contains("show")){
+
+new bootstrap.Collapse(menu).hide();
+
+}
+
+});
+
+});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+
+anchor.addEventListener("click",function(e){
+
+e.preventDefault();
+
+const target=document.querySelector(this.getAttribute("href"));
+
+if(target){
+
+target.scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+}
+
+});
+
+});
+
+// Loading animation
+window.addEventListener("load",()=>{
+
+document.body.style.opacity="1";
+
+});
+
+document.body.style.opacity="0";
+
+document.body.style.transition="opacity .8s";
+
+</script>
 
 </body>
 
