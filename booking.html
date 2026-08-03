@@ -325,7 +325,7 @@ collection,
 addDoc
 } from "https://www.gstatic.com/firebasejs/12.17.0/firebase-firestore.js";
 
-import { app } from "./js/firebase.js";
+import { app, auth } from "./js/firebase.js";
 
 const db=getFirestore(app);
 
@@ -363,8 +363,35 @@ try{
 
 await addDoc(collection(db,"bookings"),{
 
+email: auth.currentUser.email,
+
 name:document.getElementById("name").value,
 
+mobile:document.getElementById("mobile").value,
+
+pickup:document.getElementById("pickup").value,
+
+destination:document.getElementById("destination").value,
+
+journeyDate:document.getElementById("journeyDate").value,
+
+passengers:document.getElementById("passengers").value,
+
+vehicle:document.getElementById("vehicle").value,
+
+distance:document.getElementById("distance").value,
+
+days:document.getElementById("days").value,
+
+message:document.getElementById("message").value,
+
+fare:document.getElementById("totalFare").innerText,
+
+status:"Pending",
+
+createdAt:new Date()
+
+});
 mobile:document.getElementById("mobile").value,
 
 pickup:document.getElementById("pickup").value,
