@@ -23,11 +23,11 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Poppins,sans-serif;
+font-family:'Poppins',sans-serif;
 }
 
 body{
-background:#f4f4f4;
+background:#f5f5f5;
 }
 
 .navbar{
@@ -36,13 +36,13 @@ background:#000;
 
 .navbar-brand{
 color:#ffc107!important;
-font-weight:bold;
+font-weight:700;
 }
 
 .card{
 border:none;
-border-radius:20px;
-box-shadow:0 10px 25px rgba(0,0,0,.15);
+border-radius:18px;
+box-shadow:0 10px 25px rgba(0,0,0,.12);
 }
 
 .form-control,
@@ -51,14 +51,21 @@ border-radius:12px;
 }
 
 .btn-warning{
-font-weight:bold;
 border-radius:50px;
+font-weight:bold;
 }
 
 #map{
 height:420px;
 border-radius:15px;
-margin-top:20px;
+}
+
+.alert-warning{
+border-radius:15px;
+}
+
+.alert-danger{
+border-radius:15px;
 }
 
 </style>
@@ -71,9 +78,7 @@ margin-top:20px;
 
 <div class="container">
 
-<a href="index.html"
-
-class="navbar-brand">
+<a class="navbar-brand" href="index.html">
 
 <img src="images/logo.jpg"
 
@@ -114,13 +119,9 @@ Full Name
 </label>
 
 <input
-
 type="text"
-
 id="name"
-
 class="form-control"
-
 required>
 
 </div>
@@ -134,59 +135,10 @@ Mobile Number
 </label>
 
 <input
-
 type="tel"
-
 id="mobile"
-
 class="form-control"
-
-placeholder="10-digit mobile number"
-
-required>
-
-</div>
-
-<div class="mb-3">
-
-<label class="form-label">
-
-Journey Date
-
-</label>
-
-<input
-
-type="date"
-
-id="journeyDate"
-
-class="form-control"
-
-required>
-
-</div>
-
-<div class="mb-3">
-
-<label class="form-label">
-
-Passengers
-
-</label>
-
-<input
-
-type="number"
-
-id="passengers"
-
-class="form-control"
-
-min="1"
-
-max="17"
-
+placeholder="Enter Mobile Number"
 required>
 
 </div>
@@ -200,11 +152,8 @@ Vehicle Type
 </label>
 
 <select
-
 id="vehicle"
-
 class="form-select"
-
 required>
 
 <option value="">
@@ -213,15 +162,15 @@ Select Vehicle
 
 </option>
 
-<option>
+<option value="23">
 
-12+1 Tempo Traveller
+AC Tempo Traveller (₹23/KM)
 
 </option>
 
-<option>
+<option value="19">
 
-17+1 Tempo Traveller
+Non AC Tempo Traveller (₹19/KM)
 
 </option>
 
@@ -242,7 +191,7 @@ Pickup Location
 type="text"
 id="pickup"
 class="form-control"
-placeholder="Search pickup location or use current location"
+placeholder="Enter Pickup Location"
 required>
 
 <button
@@ -256,13 +205,19 @@ class="btn btn-warning">
 
 </div>
 
+<small class="text-muted">
+
+Search manually or use your current location.
+
+</small>
+
 </div>
 
 <div class="mb-3">
 
 <label class="form-label">
 
-Destination (Karnataka Only)
+Destination (Karnataka)
 
 </label>
 
@@ -270,7 +225,7 @@ Destination (Karnataka Only)
 type="text"
 id="destination"
 class="form-control"
-placeholder="Enter destination"
+placeholder="Enter Destination"
 required>
 
 </div>
@@ -293,9 +248,63 @@ required>
 
 <small class="text-muted">
 
-Enter the approximate distance in kilometers.
+Enter the approximate distance in kilometres.
 
 </small>
+
+</div>
+
+<div class="row">
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+
+From Date
+
+</label>
+
+<input
+type="date"
+id="fromDate"
+class="form-control"
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+
+To Date
+
+</label>
+
+<input
+type="date"
+id="toDate"
+class="form-control"
+required>
+
+</div>
+
+</div>
+
+<div class="mb-3">
+
+<label class="form-label">
+
+Passengers
+
+</label>
+
+<input
+type="number"
+id="passengers"
+class="form-control"
+min="1"
+max="17"
+required>
 
 </div>
 
@@ -311,7 +320,43 @@ Special Requirements
 id="message"
 class="form-control"
 rows="4"
-placeholder="Write any special requirements..."></textarea>
+placeholder="Write your requirements..."></textarea>
+
+</div>
+
+<div class="alert alert-warning">
+
+<h5 class="mb-2">
+
+Estimated Fare
+
+</h5>
+
+<h2 id="estimatedFare">
+
+₹0
+
+</h2>
+
+<small>
+
+Distance Charges + Driver Bata (₹500/day)
+
+</small>
+
+</div>
+
+<div class="alert alert-danger">
+
+<b>Important Note</b><br>
+
+• Toll Charges - Not Included<br>
+
+• Parking Charges - Not Included<br>
+
+• State Permit - Not Included<br>
+
+• Other Government Taxes (if applicable) - Not Included
 
 </div>
 
@@ -345,9 +390,9 @@ Pickup Location Map
 
 <div id="map"></div>
 
-<p class="mt-3 text-muted">
+<p class="text-muted mt-3">
 
-📍 You can search the pickup location or tap the location button to use your current location.
+📍 You can search the pickup location or use your current location.
 
 </p>
 
@@ -358,19 +403,33 @@ Pickup Location Map
 </div>
 
 </div>
+<footer class="bg-dark text-white text-center py-4 mt-5">
+
+<p class="mb-0">
+
+© 2026 Kalki Pradee Tours & Travels
+
+</p>
+
+</footer>
+
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
 <script>
 
+emailjs.init("ksjAUyR80g3-Aaq5L");
+
 const map=L.map("map").setView([12.9716,77.5946],7);
 
-L.tileLayer(
-"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-{
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{
+
 maxZoom:19,
+
 attribution:"© OpenStreetMap"
-}
-).addTo(map);
+
+}).addTo(map);
 
 let marker;
 
@@ -384,13 +443,11 @@ return;
 
 }
 
-navigator.geolocation.getCurrentPosition(
+navigator.geolocation.getCurrentPosition(async(pos)=>{
 
-async(position)=>{
+const lat=pos.coords.latitude;
 
-const lat=position.coords.latitude;
-
-const lng=position.coords.longitude;
+const lng=pos.coords.longitude;
 
 map.setView([lat,lng],15);
 
@@ -404,55 +461,123 @@ marker=L.marker([lat,lng]).addTo(map);
 
 try{
 
-const response=await fetch(
+const res=await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`);
 
-`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`
-
-);
-
-const data=await response.json();
+const data=await res.json();
 
 document.getElementById("pickup").value=data.display_name;
 
 }catch{
 
-document.getElementById("pickup").value=
-
-lat+", "+lng;
+document.getElementById("pickup").value=lat+","+lng;
 
 }
-
-},
-
-()=>{
-
-alert("Please allow location permission.");
-
-}
-
-);
 
 });
 
-document.getElementById("bookingForm").addEventListener("submit",(e)=>{
+});
+
+function calculateFare(){
+
+const rate=Number(document.getElementById("vehicle").value);
+
+const km=Number(document.getElementById("distance").value);
+
+const from=document.getElementById("fromDate").value;
+
+const to=document.getElementById("toDate").value;
+
+if(!rate||!km||!from||!to){
+
+document.getElementById("estimatedFare").innerHTML="₹0";
+
+return;
+
+}
+
+const d1=new Date(from);
+
+const d2=new Date(to);
+
+const days=Math.floor((d2-d1)/(1000*60*60*24))+1;
+
+const bata=days*500;
+
+const total=(km*rate)+bata;
+
+document.getElementById("estimatedFare").innerHTML="₹"+total.toLocaleString("en-IN");
+
+}
+
+document.getElementById("vehicle").addEventListener("change",calculateFare);
+
+document.getElementById("distance").addEventListener("input",calculateFare);
+
+document.getElementById("fromDate").addEventListener("change",calculateFare);
+
+document.getElementById("toDate").addEventListener("change",calculateFare);
+
+document.getElementById("bookingForm").addEventListener("submit",function(e){
 
 e.preventDefault();
 
-alert("Booking form is ready. Next we'll connect EmailJS.");
+const rate=Number(document.getElementById("vehicle").value);
+
+const km=Number(document.getElementById("distance").value);
+
+const d1=new Date(document.getElementById("fromDate").value);
+
+const d2=new Date(document.getElementById("toDate").value);
+
+const days=Math.floor((d2-d1)/(1000*60*60*24))+1;
+
+const bata=days*500;
+
+const fare=(km*rate)+bata;
+
+emailjs.send("service_3owy9d7","template_dt99kuv",{
+
+name:document.getElementById("name").value,
+
+mobile:document.getElementById("mobile").value,
+
+pickup:document.getElementById("pickup").value,
+
+destination:document.getElementById("destination").value,
+
+distance:km,
+
+fromDate:document.getElementById("fromDate").value,
+
+toDate:document.getElementById("toDate").value,
+
+passengers:document.getElementById("passengers").value,
+
+vehicle:document.getElementById("vehicle").selectedOptions[0].text,
+
+driverBata:"₹"+bata,
+
+fare:"₹"+fare,
+
+message:document.getElementById("message").value
+
+}).then(()=>{
+
+alert("✅ Booking received successfully!\n\nOur driver will contact you soon.");
+
+document.getElementById("bookingForm").reset();
+
+document.getElementById("estimatedFare").innerHTML="₹0";
+
+}).catch((error)=>{
+
+alert("Booking failed: "+error.text);
+
+});
 
 });
 
 </script>
-
-<footer class="bg-dark text-white text-center py-4 mt-5">
-
-<p class="mb-0">
-
-© 2026 Kalki Pradee Tours & Travels
-
-</p>
-
-</footer>
 
 </body>
 
